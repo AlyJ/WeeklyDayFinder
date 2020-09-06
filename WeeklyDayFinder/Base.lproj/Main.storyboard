@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="DayFinder" translatesAutoresizingMaskIntoConstraints="NO" id="MRW-v9-DOK">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="day" translatesAutoresizingMaskIntoConstraints="NO" id="MRW-v9-DOK">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -155,9 +155,23 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="DAY FINDER" id="isN-2v-0l0"/>
+                    <navigationItem key="navigationItem" title="DAY FINDER" id="isN-2v-0l0">
+                        <barButtonItem key="leftBarButtonItem" image="info.circle.fill" catalog="system" id="BVr-OM-yJq">
+                            <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <connections>
+                                <segue destination="nR9-lE-9Xu" kind="presentation" identifier="InfoSegue" id="gU8-Y8-BUl"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="moon.circle.fill" catalog="system" id="eaF-2p-MlT">
+                            <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <connections>
+                                <segue destination="FRn-an-abT" kind="show" id="x3A-cW-txj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="dayTextFill" destination="Fu7-nd-fqY" id="bi5-T4-6Wf"/>
+                        <outlet property="findButton" destination="NpW-bq-lfW" id="5Mq-7i-WcV"/>
                         <outlet property="monthTextFill" destination="0kV-I4-5Ez" id="LNq-1i-cuB"/>
                         <outlet property="resultLabel" destination="ItH-kX-uQy" id="AIi-wN-q6I"/>
                         <outlet property="yearTextFill" destination="afu-pH-iqh" id="MFe-mk-KIj"/>
@@ -166,6 +180,103 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="869.60000000000002" y="115.59220389805098"/>
+        </scene>
+        <!--Appearence View Controller-->
+        <scene sceneID="Owl-Wp-Sgv">
+            <objects>
+                <viewController id="FRn-an-abT" customClass="AppearenceViewController" customModule="WeeklyDayFinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5ui-U0-cz2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="Omd-xp-8hp">
+                                <rect key="frame" x="122.5" y="298" width="130" height="71.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Light Mode is On" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F22-Iq-qKz">
+                                        <rect key="frame" x="0.0" y="0.0" width="130" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QA0-oI-YiN">
+                                        <rect key="frame" x="0.0" y="41.5" width="130" height="30"/>
+                                        <state key="normal" title="Open Settings"/>
+                                        <connections>
+                                            <action selector="openSettingsTapped:" destination="FRn-an-abT" eventType="touchUpInside" id="nzn-Ou-auZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Omd-xp-8hp" firstAttribute="centerY" secondItem="5ui-U0-cz2" secondAttribute="centerY" id="QEq-5l-QXd"/>
+                            <constraint firstItem="Omd-xp-8hp" firstAttribute="centerX" secondItem="5ui-U0-cz2" secondAttribute="centerX" id="aZa-f6-Oo4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Pan-5Q-vM3"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Qz7-ID-18g"/>
+                    <connections>
+                        <outlet property="textLabel" destination="F22-Iq-qKz" id="Kmq-BV-Fkv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B6k-PR-EHs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1618.4000000000001" y="-167.76611694152925"/>
+        </scene>
+        <!--Info View Controller-->
+        <scene sceneID="8mO-Ac-YpV">
+            <objects>
+                <viewController id="nR9-lE-9Xu" customClass="InfoViewController" customModule="WeeklyDayFinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NwF-Wo-mIa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r8c-5U-m5S">
+                                <rect key="frame" x="294" y="24" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="2DK-TD-MvN"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="90C-2T-MgI"/>
+                                </constraints>
+                                <state key="normal" image="clear.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="closeButtonTapped:" destination="nR9-lE-9Xu" eventType="touchUpInside" id="yPo-oQ-s7Q"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App Info" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JJV-Lw-CZl">
+                                <rect key="frame" x="93" y="594.5" width="189" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App Info" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ret-MI-I6o">
+                                <rect key="frame" x="93" y="310" width="189" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="bym-MI-hfo" firstAttribute="trailing" secondItem="r8c-5U-m5S" secondAttribute="trailing" constant="41" id="HOf-Pd-BHh"/>
+                            <constraint firstItem="bym-MI-hfo" firstAttribute="trailing" secondItem="JJV-Lw-CZl" secondAttribute="trailing" constant="93" id="JXD-GU-AOT"/>
+                            <constraint firstItem="Ret-MI-I6o" firstAttribute="top" secondItem="bym-MI-hfo" secondAttribute="top" constant="310" id="Ww4-nr-ydv"/>
+                            <constraint firstItem="bym-MI-hfo" firstAttribute="trailing" secondItem="Ret-MI-I6o" secondAttribute="trailing" constant="93" id="XKo-Aa-ykI"/>
+                            <constraint firstItem="JJV-Lw-CZl" firstAttribute="leading" secondItem="bym-MI-hfo" secondAttribute="leading" constant="93" id="cNY-tX-TMi"/>
+                            <constraint firstItem="Ret-MI-I6o" firstAttribute="leading" secondItem="bym-MI-hfo" secondAttribute="leading" constant="93" id="gwW-SV-r50"/>
+                            <constraint firstItem="bym-MI-hfo" firstAttribute="bottom" secondItem="JJV-Lw-CZl" secondAttribute="bottom" constant="32" id="rjr-NU-Qlx"/>
+                            <constraint firstItem="r8c-5U-m5S" firstAttribute="top" secondItem="bym-MI-hfo" secondAttribute="top" constant="24" id="syW-GO-H3S"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bym-MI-hfo"/>
+                    </view>
+                    <connections>
+                        <outlet property="appDescLabel" destination="JJV-Lw-CZl" id="Mia-tY-CAB"/>
+                        <outlet property="appInfoLabel" destination="Ret-MI-I6o" id="Ltx-E9-YSd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jAQ-Yg-LfM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1616.8" y="511.39430284857576"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Sxv-K4-WuN">
@@ -188,6 +299,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="DayFinder" width="419" height="599"/>
+        <image name="clear.fill" catalog="system" width="128" height="114"/>
+        <image name="day" width="1600" height="1200"/>
+        <image name="info.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="moon.circle.fill" catalog="system" width="128" height="121"/>
     </resources>
 </document>
